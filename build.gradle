@@ -61,7 +61,7 @@ dependencies {
     implementation 'org.apache.qpid:proton-j:0.34.1'
     implementation 'org.apache.commons:commons-compress:1.25.0'
 
-    implementation platform('software.amazon.awssdk:bom:2.20.130')
+    implementation platform('software.amazon.awssdk:bom:2.22.12')
     implementation 'software.amazon.awssdk:cloudwatch'
     implementation 'software.amazon.awssdk:sns'
     implementation 'software.amazon.awssdk:sqs'
