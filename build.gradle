@@ -132,38 +132,38 @@ jacocoTestCoverageVerification {
     dependsOn jacocoTestReport
 }
 
-// spotbugsMain {
-//     ignoreFailures = true
-//     reports {
-//         html {
-//             enabled = true
-//             destination = file("$buildDir/reports/spotbugs/main/spotbugs.html")
-//             stylesheet = 'fancy-hist.xsl'
-//         }
-//     }
-// }
+spotbugsMain {
+    ignoreFailures = true
+    reports {
+        html {
+            enabled = true
+            destination = file("$buildDir/reports/spotbugs/main/spotbugs.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+    }
+}
 
-// spotbugsTest {
-//     ignoreFailures = true
-//     reports {
-//         html {
-//             enabled = true
-//             destination = file("$buildDir/reports/spotbugs/test/spotbugs.html")
-//             stylesheet = 'fancy-hist.xsl'
-//         }
-//     }
-// }
+spotbugsTest {
+    ignoreFailures = true
+    reports {
+        html {
+            enabled = true
+            destination = file("$buildDir/reports/spotbugs/test/spotbugs.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+    }
+}
 
-// spotbugsIntegration {
-//     ignoreFailures = true
-//     reports {
-//         html {
-//             enabled = true
-//             destination = file("$buildDir/reports/spotbugs/integration/spotbugs.html")
-//             stylesheet = 'fancy-hist.xsl'
-//         }
-//     }
-// }
+spotbugsIntegration {
+    ignoreFailures = true
+    reports {
+        html {
+            enabled = true
+            destination = file("$buildDir/reports/spotbugs/integration/spotbugs.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+    }
+}
 
 // dependencyCheck {
 //     failBuildOnCVSS = 7
