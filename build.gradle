@@ -175,12 +175,12 @@ jacocoTestCoverageVerification {
 
 // }
 
-sonar {
-    properties {
-        property 'sonar.projectKey', 'prm-orphaned-record-continuity_prm-repo-ehr-transfer-service'
-        property 'sonar.organization', 'prm-orphaned-record-continuity'
-        property 'sonar.host.url', 'https://sonarcloud.io'
-    }
-}
+// sonar {
+//     properties {
+//         property 'sonar.projectKey', 'prm-orphaned-record-continuity_prm-repo-ehr-transfer-service'
+//         property 'sonar.organization', 'prm-orphaned-record-continuity'
+//         property 'sonar.host.url', 'https://sonarcloud.io'
+//     }
+// }
 
 check.dependsOn integration
