@@ -4,7 +4,7 @@ plugins {
     id 'java'
     id 'jacoco'
     id 'com.github.spotbugs' version '6.0.6'
-    // id 'org.owasp.dependencycheck' version '8.2.1'
+    id 'org.owasp.dependencycheck' version '8.2.1'
     // id 'org.sonarqube' version '4.3.1.3277'
 }
 
@@ -165,15 +165,15 @@ spotbugsIntegration {
     }
 }
 
-// dependencyCheck {
-//     failBuildOnCVSS = 7
-//     suppressionFile = './dependency-checks-suppression.xml'
-//     analyzers {
-//         assemblyEnabled = false
-//         ossIndexEnabled = false
-//     }
+dependencyCheck {
+    failBuildOnCVSS = 7
+    suppressionFile = './dependency-checks-suppression.xml'
+    analyzers {
+        assemblyEnabled = false
+        ossIndexEnabled = false
+    }
 
-// }
+}
 
 // sonar {
 //     properties {
