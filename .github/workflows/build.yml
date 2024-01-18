@@ -9,14 +9,35 @@ jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
+    services:
+      activemq-1:
+        image: symptoma/activemq:5.18.3
+        ports:
+          - 61616:61616
+          - 5672:5672
+      activemq-2:
+        image: symptoma/activemq:5.18.3
+        ports:
+          - 61617:61616
+      localstack:
+        image: localstack/localstack:2.3.2
+        ports:
+          - "4566:4566"
+        env:
+          SERVICES: sqs,sns,dynamodb,s3
+          DEFAULT_REGION: eu-west-2
+          HOSTNAME_EXTERNAL: localstack
+        volumes:
+          - "/var/lib/localstack:/var/lib/localstack"
+          - "/var/run/docker.sock:/var/run/docker.sock"    
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
+          java-version: 21
           distribution: 'adopt'
       - name: Cache SonarCloud packages
         uses: actions/cache@v3
@@ -38,4 +59,4 @@ jobs:
           AWS_REGION: 'eu-west-2'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: ./tasks run_sonar
+        run: ./gradlew build sonar --info
